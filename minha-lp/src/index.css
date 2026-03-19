@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  /* Cores da Rayelle Engenharia */
+  --color-brand-beige: #e5d9c9;
+  --color-brand-dark: #2c2c2c;
+  --color-brand-light: #f8f5f1;
+  --color-brand-gold: #c5a27d;
+
+  /* Se quiser usar fontes elegantes como a do site */
+  --font-serif: "Playfair Display", serif;
+}
+
+/* Opcional: Reset de cor de fundo padrão */
+body {
+  @apply bg-brand-light text-brand-dark antialiased;
+}
