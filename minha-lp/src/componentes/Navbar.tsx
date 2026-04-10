@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Menu, X, Instagram, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
+import { Instagram } from "lucide-react/icons";
 import logo from "../assets/logo/logo.svg";
 
 export default function Navbar() {
