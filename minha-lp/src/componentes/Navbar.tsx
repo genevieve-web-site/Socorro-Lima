@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Menu, X, Instagram, MessageCircle } from "lucide-react";
+// 1. Mude no import
+import {
+  Menu,
+  X,
+  MessageCircle,
+  Instagram as InstagramIcon,
+} from "lucide-react";
+
 import logo from "../assets/logo/logo.svg";
 
 export default function Navbar() {
@@ -75,7 +82,7 @@ export default function Navbar() {
             rel="noreferrer"
             className="text-[var(--color-primary-dark)] transition-colors transition-transform hover:text-[var(--color-accent-light)] hover:-translate-y-1"
           >
-            <Instagram size={24} />
+            <InstagramIcon size={24} />
           </a>
           <a
             href="https://wa.me/557781135298"
