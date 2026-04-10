@@ -1,11 +1,6 @@
 import { useState } from "react";
 // 1. Mude no import
-import {
-  Menu,
-  X,
-  MessageCircle,
-  Instagram as InstagramIcon,
-} from "lucide-react";
+import { Menu, X, MessageCircle } from "lucide-react";
 
 import logo from "../assets/logo/logo.svg";
 
@@ -76,14 +71,6 @@ export default function Navbar() {
 
         {/* 3. CANTO DIREITO: ÍCONES SOCIAIS */}
         <div className="flex justify-end items-center gap-4 md:gap-8 text-brand-dark">
-          <a
-            href="https://www.instagram.com/terapeutasocorrolima/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-[var(--color-primary-dark)] transition-colors transition-transform hover:text-[var(--color-accent-light)] hover:-translate-y-1"
-          >
-            <InstagramIcon size={24} />
-          </a>
           <a
             href="https://wa.me/557781135298"
             target="_blank"
