@@ -1,11 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* Cores da Rayelle Engenharia */
-  --color-brand-beige: #e5d9c9;
-  --color-brand-dark: #2c2c2c;
-  --color-brand-light: #f8f5f1;
-  --color-brand-gold: #c5a27d;
+  /* BASE */
+  --color-primary: #3e5026; /* verde principal */
+  --color-primary-dark: #2f3d1c; /* hover, contraste */
+  --color-primary-light: #6f7f4f; /* detalhes suaves */
+
+  /* NEUTROS */
+  --color-beige: #f6f5f3; /* fundo */
+  --color-off-white: #fafaf8; /* fundo leve */
+  --color-text: #2b2b2b; /* texto principal */
+
+  /* APOIO (verde suave) */
+  --color-soft-green: #c8dbae; /* destaque leve */
+
+  /* DESTAQUE (agora sim dourado real) */
+  --color-accent: #c2a96a; /* dourado elegante */
+  --color-accent-light: #e3d3a3;
+
+  /* EXTRA (sofisticação) */
+  --color-muted: #495042; /* cinza esverdeado */
+
+  /* ALIASES para classes já usadas no projeto (bg-brand-*, text-brand-*) */
+  --color-brand-gold: var(--color-accent);
+  --color-brand-dark: var(--color-text);
+  --color-brand-light: var(--color-off-white);
+  --color-brand-beige: var(--color-beige);
+  --color-brand-brown: var(--color-muted);
 
   /* Se quiser usar fontes elegantes como a do site */
   --font-serif: "Playfair Display", serif;

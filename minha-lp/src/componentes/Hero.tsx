@@ -1,16 +1,23 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, ShieldCheck, HardHat } from "lucide-react";
+import { ArrowRight, ShieldCheck, Brain } from "lucide-react";
 import { Link } from "react-router-dom";
-import heroImage from "../assets/bg.png";
-import secondImage from "../assets/logos/SUBLOGO-2.jpg.jpeg";
+import heroImage from "../assets/midia/comprimidas/1.png";
+import secondImage from "../assets/midia/3.png";
+import Image from "../assets/midia/comprimidas/5.jpg";
 
 const carouselItems = [
-  { src: heroImage, title: "Precisão", subtitle: "Engenharia Diagnóstica" },
-  { src: secondImage, title: "Segurança", subtitle: "Vistoria de Entrega" },
   {
-    src: "https://images.unsplash.com/photo-1503387762-592dee58c460?auto=format&fit=crop&q=80",
-    title: "Rigor",
-    subtitle: "Laudos Técnicos",
+    src: heroImage,
+    title: "Equilíbrio emocional",
+    subtitle: "Cuidado terapêutico para viver com mais leveza no dia a dia.",
+  },
+  {
+    src: secondImage,
+    title: "Ansiedade sob controle",
+    subtitle: "Aprenda a compreender emoções e reduzir o estresse.",
+  },
+  {
+    src: Image,
   },
 ];
 
@@ -25,44 +32,54 @@ export default function HeroModerno() {
   }, []);
 
   return (
-    <section className="relative min-h-screen bg-brand-light flex items-center overflow-hidden pt-20">
+    <section
+      className="relative min-h-screen flex items-center overflow-hidden pt-20"
+      style={{ backgroundColor: "var(--color-brand-beige)" }}
+    >
       {/* TEXTO DE FUNDO (DECORATIVO) */}
-      <div className="absolute top-1/2 left-10 -translate-y-1/2 select-none pointer-events-none hidden lg:block">
-        <span className="text-[15rem] font-serif font-black text-brand-beige/40 leading-none">
-          DIAGNÓSTICO
+      <div className="absolute top-150 left-10 -translate-y-1/2 select-none pointer-events-none hidden lg:block">
+        <span className="text-[15rem] mt-12 font-serif font-black text-brand-gold/10 leading-none">
+          RPG
         </span>
       </div>
 
       <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         {/* COLUNA DE TEXTO (5/12) */}
         <div className="lg:col-span-5 space-y-8 lg:-mt-32">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-gold/10 text-brand-gold border border-brand-gold/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-brown/30 text-brand-brown border border-brand-gold/20">
             <ShieldCheck size={16} />
-            <span className="text-xs font-bold uppercase tracking-widest">
-              Selo de Qualidade Técnica
+            <span className="text-xs font-brand-brown uppercase tracking-widest">
+              Certificada
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-4xl font-serif text-brand-dark leading-[0.9] lg:-ml-1">
-            Excelência <br />
-            <span className="italic font-light">nos detalhes</span> <br />
-            que importam.
+          <h1 className="text-5xl md:text-4xl font-serif text-gray-600 leading-[0.9] lg:-ml-1">
+            Psicanálise & <br />
+            <span className="italic font-light text-brand-brown">
+              terapia{" "}
+            </span>{" "}
+            <br />
+            para ansiedade
           </h1>
 
-          <p className="text-sm text-brand-dark/70 max-w-sm leading-relaxed border-l-2 border-brand-gold pl-6">
-            Não é apenas uma vistoria. É a garantia de que seu maior
-            investimento está livre de vícios e falhas ocultas.
+          <p className="text-sm text-brand-brown max-w-sm leading-relaxed border-l-2 border-brand-gold pl-6">
+            Se reconectar consigo mesma pode transformar toda a sua vida.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-brand-gold/80 text-gray-600 px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-brand-dark transition-all flex items-center justify-center gap-3 shadow-xl animate-[pulse_3.5s_ease-in-out_infinite]">
+            <a
+              href="https://wa.me/557781135298"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-brand-gold/80 text-gray-600 px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-brand-dark transition-all flex items-center justify-center gap-3 shadow-xl animate-[pulse_3.5s_ease-in-out_infinite]"
+            >
               Entrar em contato <ArrowRight size={18} />
-            </button>
+            </a>
             <Link
               to="/about"
               className="border border-brand-brown text-brand-brown px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest bg-brand-gold/10 transition-all text-center"
             >
-              Sobre mim
+              Sobre a Técina
             </Link>
           </div>
         </div>
@@ -78,16 +95,16 @@ export default function HeroModerno() {
                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
                   active === i ? "opacity-100 scale-100" : "opacity-0 scale-110"
                 }`}
-                alt="Projetos Rayelle"
+                alt="Metodo TRG Socorro Lima"
               />
             ))}
 
             {/* OVERLAY DE TEXTO NO CARROSSEL */}
-            <div className="absolute bottom-12 left-0 right-0 text-center text-white p-4">
-              <p className="text-xs uppercase tracking-[0.3em] opacity-80">
+            <div className="absolute bottom-4 left-4 md:left-6 text-left p-4 max-w-[80%]">
+              <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-primary-dark)] opacity-80">
                 {carouselItems[active].subtitle}
               </p>
-              <h4 className="text-2xl font-serif italic">
+              <h4 className="text-2xl font-serif italic text-[var(--color-primary-dark)]">
                 {carouselItems[active].title}
               </h4>
             </div>
@@ -95,16 +112,16 @@ export default function HeroModerno() {
 
           {/* ELEMENTOS FLUTUANTES (STATUS) */}
 
-          <div className="absolute bottom-6 right-0 md:right-10 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow flex items-center gap-4 border border-brand-beige">
+          <div className="absolute bottom-42 right-0 md:right-10 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow flex items-center gap-4 border border-brand-beige">
             <div className="bg-brand-gold/20 p-2 rounded-lg text-brand-gold">
-              <HardHat size={24} />
+              <Brain size={24} />
             </div>
             <div>
               <p className="text-xl font-bold text-brand-dark leading-none">
-                500+
+                260+
               </p>
               <p className="text-[10px] uppercase text-brand-dark/60 font-bold">
-                Vistorias
+                Atendimentos
               </p>
             </div>
           </div>

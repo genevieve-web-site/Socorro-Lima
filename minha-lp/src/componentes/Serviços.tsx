@@ -1,38 +1,38 @@
 import { CheckCircle2 } from "lucide-react";
-import servico1 from "../assets/serviços/OBRA.png";
-import servico2 from "../assets/serviços/OBRA2.png";
-import servico3 from "../assets/serviços/OBRA3.png";
-import servico4 from "../assets/serviços/OBRA4.png";
+import servico1 from "../assets/midia/abordagens/1.jpeg";
+import servico2 from "../assets/midia/abordagens/2.jpeg";
+import servico3 from "../assets/midia/abordagens/3.jpeg";
+import servico4 from "../assets/midia/abordagens/4.jpeg";
 
 export default function Services() {
   const services = [
     {
-      title: "Vistoria de Imóvel Novo",
+      title: "Análise emocional e psicanálise",
       img: servico1,
-      desc: "Entrega de chaves com rigor técnico.",
+      desc: "Investigação das emoções profundas",
     },
     {
-      title: "Projetos Hidrossanitários",
+      title: "Escuta terapêutica e acolhimento",
       img: servico2,
-      desc: "Planejamento e execução de sistemas.",
+      desc: "Espaço seguro sem julgamento, apoio contínuo.",
     },
     {
-      title: "Inspeção Predial",
+      title: "Identificação de padrões comportamentais",
       img: servico3,
-      desc: "Análise profunda da saúde do edifício.",
+      desc: "Interpretação de comportamentos.",
     },
     {
-      title: "Laudos Periciais",
+      title: "Técnicas terapêuticas complementares",
       img: servico4,
-      desc: "Documentação técnica especializada.",
+      desc: "Interpretação de desenhos (principalmente crianças)",
     },
   ];
 
   const listServices = [
-    "Vistoria Locativa (Início e Fim)",
-    "Gerenciamento de Obras",
-    "Projetos Hidrossanitários",
-    "Consultoria em Patologias",
+    "Ansiedade e sobrecarga emocional",
+    "Dependência emocional ",
+    "Traumas e bloqueios emocionais",
+    "Baixa autoestima e insegurança",
   ];
 
   return (
@@ -52,13 +52,13 @@ export default function Services() {
               Técnica
             </h2>
             <h3 className="text-5xl md:text-6xl font-serif text-brand-dark leading-tight">
-              Soluções que garantem <br />
-              <span className="italic font-light">seu patrimônio.</span>
+              Como funciona <br />
+              <span className="italic font-light">o processo terapêutico.</span>
             </h3>
           </div>
           <p className="text-brand-dark/60 text-sm md:text-base max-w-xs border-l border-brand-beige pl-4 italic">
-            "Diagnósticos precisos para evitar prejuízos futuros e garantir
-            segurança jurídica."
+            "Abordagens terapêuticas que ajudam a acessar emoções de forma
+            profunda e personalizada."
           </p>
         </div>
 
@@ -83,12 +83,12 @@ export default function Services() {
         </div>
 
         {/* LISTA COMPLEMENTAR E CTA */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-16 border-t border-brand-beige/50 p-8 rounded-2xl bg-cover bg-center relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-6 border-t border-brand-beige/50 p-8 rounded-2xl bg-cover bg-center relative">
           <div className="absolute inset-0 bg- rounded-2xl" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
             {listServices.map((s, i) => (
               <div key={i} className="flex items-center gap-3">
-                <CheckCircle2 className="text-brand-gold shrink-0" size={18} />
+                <CheckCircle2 className="text-primary shrink-0" size={18} />
                 <span className="text-brand-dark/80 font-medium text-sm md:text-base">
                   {s}
                 </span>
@@ -96,13 +96,19 @@ export default function Services() {
             ))}
           </div>
 
-          <div className="bg-brand-gold p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/50 relative z-10">
-            <p className="text-brand-dark font-serif italic text-lg text-center md:text-left">
-              Precisa de um laudo <br /> personalizado para sua obra?
+          <div className="bg-primary-light p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-xl border border-white/50 relative z-10">
+            <p className="text-beige font-serif italic text-lg text-center md:text-left">
+              Comece seu processo com <br /> um atendimento acolhedor e
+              personalizado.
             </p>
-            <button className="bg-brand-dark text-white px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-brand-dark transition-all shadow-lg">
+            <a
+              href="https://wa.me/557781135298"
+              target="_blank"
+              rel="noreferrer"
+              className="bg-brand-beige text-primary px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-white hover:text-brand-dark transition-all shadow-lg"
+            >
               Falar Comigo
-            </button>
+            </a>
           </div>
         </div>
       </div>

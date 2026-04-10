@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Menu, X, Instagram, MessageCircle } from "lucide-react";
-import logo from "../assets/logos/MARCA-D'AGUA-4.png";
+import logo from "../assets/logo/logo.svg";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,15 +22,19 @@ export default function Navbar() {
           <div className="relative">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-brand-gold hover:text-brand-dark transition-colors p-2"
+              className="text-[var(--color-primary-dark)] transition-colors p-2"
               aria-label="Abrir menu"
             >
-              {isOpen ? <X size={32} /> : <Menu size={32} />}
+              <Menu size={32} className={isOpen ? "hidden" : "block"} />
+              <X size={32} className={isOpen ? "block" : "hidden"} />
             </button>
 
             {/* Dropdown do Menu */}
             {isOpen && (
-              <div className="absolute top-full left-0 mt-4 w-64 bg-brand-light shadow-2xl rounded-br-3xl border border-brand-beige overflow-hidden animate-in slide-in-from-left duration-300">
+              <div
+                className="absolute top-full left-0 mt-4 w-64 shadow-2xl rounded-br-3xl border border-brand-beige overflow-hidden animate-in slide-in-from-left duration-300"
+                style={{ backgroundColor: "var( --color-muted)" }}
+              >
                 <ul className="flex flex-col">
                   {menuItems.map((item) => (
                     <li
@@ -40,7 +44,7 @@ export default function Navbar() {
                       <a
                         href={item.href}
                         onClick={() => setIsOpen(false)}
-                        className="text-brand-dark font-medium px-8 py-5 hover:bg-brand-beige/30 transition-all block"
+                        className="text-brand-beige font-medium px-8 py-5 hover:bg-brand-beige/30 transition-all block"
                       >
                         {item.name}
                       </a>
@@ -57,31 +61,27 @@ export default function Navbar() {
           <a href="/home" className="flex flex-col items-center">
             <img
               src={logo}
-              alt="Rayelle Engenharia"
+              alt="Terapeuta Socorro Lima - Logo"
               className="h-20 md:h-28 w-auto"
             />
-            {/* Texto auxiliar abaixo da logo */}
-            <span className="hidden md:block text-[10px] tracking-[0.4em] uppercase text-brand-dark font-bold -mt-2">
-              Rayelle Mayla
-            </span>
           </a>
         </div>
 
         {/* 3. CANTO DIREITO: ÍCONES SOCIAIS */}
         <div className="flex justify-end items-center gap-4 md:gap-8 text-brand-dark">
           <a
-            href="https://instagram.com/rayellemayla.eng"
+            href="https://www.instagram.com/terapeutasocorrolima/"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-brand-gold transition-transform hover:-translate-y-1"
+            className="text-[var(--color-primary-dark)] transition-colors transition-transform hover:text-[var(--color-accent-light)] hover:-translate-y-1"
           >
             <Instagram size={24} />
           </a>
           <a
-            href="https://wa.me/seu-numero"
+            href="https://wa.me/557781135298"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-brand-gold transition-transform hover:-translate-y-1"
+            className="text-[var(--color-primary-dark)] transition-colors transition-transform hover:text-[var(--color-accent-light)] hover:-translate-y-1"
           >
             <MessageCircle size={24} />
           </a>
