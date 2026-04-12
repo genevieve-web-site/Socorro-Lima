@@ -9,15 +9,14 @@ const carouselItems = [
   {
     src: heroImage,
     title: "Equilíbrio emocional",
-    subtitle: "Cuidado terapêutico para viver com mais leveza no dia a dia.",
   },
   {
     src: secondImage,
     title: "Ansiedade sob controle",
-    subtitle: "Aprenda a compreender emoções e reduzir o estresse.",
   },
   {
     src: Image,
+    title: "Transformação emocional",
   },
 ];
 
@@ -33,7 +32,7 @@ export default function HeroModerno() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center overflow-hidden pt-20"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 lg:pt-20"
       style={{ backgroundColor: "var(--color-brand-beige)" }}
     >
       {/* TEXTO DE FUNDO (DECORATIVO) */}
@@ -43,9 +42,9 @@ export default function HeroModerno() {
         </span>
       </div>
 
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+      <div className="container mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
         {/* COLUNA DE TEXTO (5/12) */}
-        <div className="lg:col-span-5 space-y-8 lg:-mt-32">
+        <div className="lg:col-span-5 space-y-6 sm:space-y-8 lg:-mt-32">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-brown/30 text-brand-brown border border-brand-gold/20">
             <ShieldCheck size={16} />
             <span className="text-xs font-brand-brown uppercase tracking-widest">
@@ -53,7 +52,7 @@ export default function HeroModerno() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-4xl font-serif text-gray-600 leading-[0.9] lg:-ml-1">
+          <h1 className="text-4xl sm:text-5xl md:text-4xl font-serif text-gray-600 leading-[1] sm:leading-[0.95] lg:-ml-1">
             Psicanálise & <br />
             <span className="italic font-light text-brand-brown">
               terapia{" "}
@@ -62,11 +61,11 @@ export default function HeroModerno() {
             para ansiedade
           </h1>
 
-          <p className="text-sm text-brand-brown max-w-sm leading-relaxed border-l-2 border-brand-gold pl-6">
+          <p className="text-sm text-brand-brown max-w-sm leading-relaxed border-l-2 border-brand-gold pl-4 sm:pl-6">
             Se reconectar consigo mesma pode transformar toda a sua vida.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <a
               href="https://wa.me/557781135298"
               target="_blank"
@@ -85,9 +84,9 @@ export default function HeroModerno() {
         </div>
 
         {/* COLUNA DA IMAGEM (7/12) */}
-        <div className="lg:col-span-7 relative h-[600px] flex justify-center items-center">
+        <div className="lg:col-span-7 relative h-[420px] sm:h-[520px] lg:h-[600px] flex justify-center items-center">
           {/* CARROSSEL EM ARCO */}
-          <div className="relative w-full max-w-[450px] h-full rounded-t-full overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border-8 border-white">
+          <div className="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[450px] h-full rounded-t-full overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.3)] border-8 border-white">
             {carouselItems.map((item, i) => (
               <img
                 key={i}
@@ -100,11 +99,11 @@ export default function HeroModerno() {
             ))}
 
             {/* OVERLAY DE TEXTO NO CARROSSEL */}
-            <div className="absolute bottom-4 left-4 md:left-6 text-left p-4 max-w-[80%]">
-              <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-primary-dark)] opacity-80">
+            <div className="absolute bottom-2 sm:bottom-3 left-3 sm:left-4 md:left-6 text-left p-3 sm:p-4 max-w-[85%]">
+              <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[var(--color-primary-dark)] opacity-80">
                 {carouselItems[active].subtitle}
               </p>
-              <h4 className="text-2xl font-serif italic text-[var(--color-primary-dark)]">
+              <h4 className="text-xl sm:text-2xl font-serif italic text-[var(--color-primary-dark)]">
                 {carouselItems[active].title}
               </h4>
             </div>
@@ -112,22 +111,22 @@ export default function HeroModerno() {
 
           {/* ELEMENTOS FLUTUANTES (STATUS) */}
 
-          <div className="absolute bottom-42 right-0 md:right-10 bg-white p-4 rounded-2xl shadow-xl animate-bounce-slow flex items-center gap-4 border border-brand-beige">
+          <div className="absolute bottom-35 sm:bottom-10 right-2 sm:right-6 md:right-10 bg-white p-3 sm:p-4 rounded-2xl shadow-xl animate-bounce-slow flex items-center gap-3 sm:gap-4 border border-brand-beige z-20">
             <div className="bg-brand-gold/20 p-2 rounded-lg text-brand-gold">
               <Brain size={24} />
             </div>
             <div>
-              <p className="text-xl font-bold text-brand-dark leading-none">
+              <p className="text-lg sm:text-xl font-bold text-brand-dark leading-none">
                 260+
               </p>
-              <p className="text-[10px] uppercase text-brand-dark/60 font-bold">
+              <p className="text-[9px] sm:text-[10px] uppercase text-brand-dark/60 font-bold">
                 Atendimentos
               </p>
             </div>
           </div>
 
           {/* INDICADORES VERTICAIS */}
-          <div className="absolute left-0 lg:left-10 flex flex-col gap-3">
+          <div className="absolute left-0 lg:left-10 hidden sm:flex flex-col gap-3">
             {carouselItems.map((_, i) => (
               <div
                 key={i}

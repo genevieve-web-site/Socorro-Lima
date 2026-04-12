@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="bg-brand-dark text-white pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <footer className="bg-brand-dark text-white pt-14 sm:pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 grid grid-cols-1 md:grid-cols-3 gap-10 sm:gap-12 mb-12 text-center md:text-left">
         <div>
           <h4 className="text-brand-gold font-bold mb-4 uppercase tracking-widest">
             Socorro Lima Terapeuta
@@ -50,7 +50,7 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <div className="border-t border-white/10 pt-8 text-white/30 text-xs max-w-7xl mx-auto px-6 flex flex-col gap-2 md:flex-row md:items-center md:justify-between">
+      <div className="border-t border-white/10 pt-8 text-white/30 text-xs max-w-7xl mx-auto px-5 sm:px-6 flex flex-col gap-2 md:flex-row md:items-center md:justify-between text-center md:text-left">
         <span>
           © 2026 Socorro Lima Terapeuta. Todos os direitos reservados.
         </span>

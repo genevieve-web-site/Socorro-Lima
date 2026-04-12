@@ -46,20 +46,20 @@ export default function ProjectsGallery() {
   return (
     <section
       id="projetos"
-      className="py-24 bg-brand-light text-white relative overflow-hidden"
+      className="py-20 sm:py-24 bg-brand-light text-white relative overflow-hidden"
     >
       {/* Detalhe de Fundo (Coordenadas) */}
-      <div className="absolute top-0 text-[6rem] md:text-[8rem] font-serif font-black text-brand-brown/5 leading-none select-none">
+      <div className="absolute top-0 text-[3.5rem] sm:text-[6rem] md:text-[8rem] font-serif font-black text-brand-brown/5 leading-none select-none">
         TRG// REGENERATIVO
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:justify-start items-start mb-16 gap-3 lg:gap-6">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:justify-start items-start mb-12 sm:mb-16 gap-3 lg:gap-6">
           <div className="max-w-2xl">
             <h2 className="text-brand-brown uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-2">
               <span className="w-8 h-[1px] bg-brand-brown"></span> Técnica
             </h2>
-            <h3 className="text-5xl md:text-6xl text-brand-brown font-serif leading-tight">
+            <h3 className="text-4xl sm:text-5xl md:text-6xl text-brand-brown font-serif leading-tight">
               Formação & abordagem{" "}
               <span className="italic font-light">terapêutica.</span>
             </h3>
@@ -71,9 +71,9 @@ export default function ProjectsGallery() {
         </div>
 
         {/* GRID ASSIMÉTRICO DE PORTFÓLIO */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
           {/* Item 1 - Destaque (Card 1) */}
-          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl md:col-span-2 md:aspect-[16/10]">
+          <div className="relative aspect-[4/3] sm:aspect-[3/4] overflow-hidden rounded-2xl sm:col-span-2 md:col-span-2 md:aspect-[16/10]">
             <div
               className="absolute inset-0"
               style={{ backgroundColor: projects[0].bg }}
@@ -81,19 +81,19 @@ export default function ProjectsGallery() {
             {projects[0].logo && (
               <img
                 src={projects[0].logo}
-                className="absolute top-6 left-6 w-58 h-24 object-contain"
+                className="absolute top-4 sm:top-6 left-4 sm:left-6 w-48 sm:w-58 h-20 sm:h-24 object-contain"
                 alt="Logo"
               />
             )}
 
-            <div className="absolute bottom-6 left-6 right-6">
+            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
               <span className="inline-block bg-white/30 text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full mb-3 tracking-widest">
                 {projects[0].tag}
               </span>
-              <h4 className="text-xl md:text-2xl font-serif italic text-white">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-serif italic text-white">
                 {projects[0].title}
               </h4>
-              <p className="text-white/90 text-sm mt-2 max-w-lg leading-relaxed">
+              <p className="text-white/90 text-xs sm:text-sm mt-2 max-w-lg leading-relaxed">
                 {projects[0].text}
               </p>
             </div>
@@ -103,7 +103,7 @@ export default function ProjectsGallery() {
           {[projects[1], projects[2]].map((p, i) => (
             <div
               key={i}
-              className="relative aspect-square overflow-hidden rounded-2xl"
+              className="relative aspect-[16/9] sm:aspect-square overflow-hidden rounded-2xl"
             >
               <div
                 className="absolute inset-0"
@@ -123,7 +123,7 @@ export default function ProjectsGallery() {
           {[projects[3], projects[4]].map((p, i) => (
             <div
               key={i}
-              className="relative aspect-square overflow-hidden rounded-2xl"
+              className="relative aspect-[16/9] sm:aspect-square overflow-hidden rounded-2xl"
             >
               <div
                 className="absolute inset-0"
@@ -140,7 +140,7 @@ export default function ProjectsGallery() {
           ))}
 
           {/* Item 6 - Destaque Final (Card 2) */}
-          <div className="relative aspect-[3/4] overflow-hidden rounded-2xl md:col-span-2 md:aspect-[16/10]">
+          <div className="relative aspect-[4/3] sm:aspect-[3/4] overflow-hidden rounded-2xl sm:col-span-2 md:col-span-2 md:aspect-[16/10]">
             <div
               className="absolute inset-0"
               style={{ backgroundColor: projects[5].bg }}
@@ -148,19 +148,19 @@ export default function ProjectsGallery() {
             {projects[5].logo && (
               <img
                 src={projects[5].logo}
-                className="absolute top-6 left-6 w-64 h-32 object-contain"
+                className="absolute top-4 sm:top-6 left-4 sm:left-6 w-48 sm:w-64 h-24 sm:h-32 object-contain"
                 alt="Logo"
               />
             )}
 
-            <div className="absolute bottom-6 left-6 right-6 text-right flex flex-col items-end">
+            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-right flex flex-col items-end">
               <span className="inline-block bg-brand-brown text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full mb-3 tracking-widest">
                 {projects[5].tag}
               </span>
-              <h4 className="text-xl md:text-2xl font-serif italic text-white">
+              <h4 className="text-lg sm:text-xl md:text-2xl font-serif italic text-white">
                 {projects[5].title}
               </h4>
-              <p className="text-white/90 text-sm mt-2 max-w-md leading-relaxed">
+              <p className="text-white/90 text-xs sm:text-sm mt-2 max-w-md leading-relaxed">
                 {projects[5].text}
               </p>
             </div>

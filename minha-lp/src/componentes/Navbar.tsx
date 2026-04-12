@@ -1,5 +1,4 @@
 import { useState } from "react";
-// 1. Mude no import
 import { Menu, X, MessageCircle } from "lucide-react";
 
 import logo from "../assets/logo/logo.svg";
@@ -16,7 +15,7 @@ export default function Navbar() {
 
   return (
     // w-full e px-0 para garantir que nada limite a largura
-    <nav className="fixed top-0 left-0 w-full z-50 bg-transparent py-4 px-6 md:px-12">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-transparent py-3 sm:py-4 px-4 sm:px-6 md:px-12">
       {/* Grid de 3 colunas que ocupa 100% da largura disponível */}
       <div className="w-full grid grid-cols-3 items-center">
         {/* 1. CANTO ESQUERDO: MENU */}
@@ -27,14 +26,14 @@ export default function Navbar() {
               className="text-[var(--color-primary-dark)] transition-colors p-2"
               aria-label="Abrir menu"
             >
-              <Menu size={32} className={isOpen ? "hidden" : "block"} />
-              <X size={32} className={isOpen ? "block" : "hidden"} />
+              <Menu size={28} className={isOpen ? "hidden" : "block"} />
+              <X size={28} className={isOpen ? "block" : "hidden"} />
             </button>
 
             {/* Dropdown do Menu */}
             {isOpen && (
               <div
-                className="absolute top-full left-0 mt-4 w-64 shadow-2xl rounded-br-3xl border border-brand-beige overflow-hidden animate-in slide-in-from-left duration-300"
+                className="absolute top-full left-0 mt-3 w-56 sm:w-64 shadow-2xl rounded-br-3xl border border-brand-beige overflow-hidden animate-in slide-in-from-left duration-300"
                 style={{ backgroundColor: "var( --color-muted)" }}
               >
                 <ul className="flex flex-col">
@@ -64,20 +63,20 @@ export default function Navbar() {
             <img
               src={logo}
               alt="Terapeuta Socorro Lima - Logo"
-              className="h-20 md:h-28 w-auto"
+              className="h-16 sm:h-20 md:h-28 w-auto"
             />
           </a>
         </div>
 
         {/* 3. CANTO DIREITO: ÍCONES SOCIAIS */}
-        <div className="flex justify-end items-center gap-4 md:gap-8 text-brand-dark">
+        <div className="flex justify-end items-center gap-3 sm:gap-4 md:gap-8 text-brand-dark">
           <a
             href="https://wa.me/557781135298"
             target="_blank"
             rel="noreferrer"
             className="text-[var(--color-primary-dark)] transition-colors transition-transform hover:text-[var(--color-accent-light)] hover:-translate-y-1"
           >
-            <MessageCircle size={24} />
+            <MessageCircle size={22} />
           </a>
         </div>
       </div>

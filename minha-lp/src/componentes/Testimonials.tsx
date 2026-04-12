@@ -58,12 +58,12 @@ export default function ComplimentsCarousel() {
   }, [activeIndex, reviews.length]);
 
   return (
-    <section className="py-24 bg-brand-light">
-      <div className="max-w-6xl mx-auto px-6 text-center relative">
+    <section className="py-20 sm:py-24 bg-brand-light">
+      <div className="max-w-6xl mx-auto px-5 sm:px-6 text-center relative">
         <h2 className="text-brand-brown uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-2 justify-center">
           <span className="w-8 h-[1px] bg-brand-brown"></span> Reconhecimento
         </h2>
-        <h3 className="text-5xl md:text-6xl font-serif text-brand-dark mb-16 italic">
+        <h3 className="text-4xl sm:text-5xl md:text-6xl font-serif text-brand-dark mb-12 sm:mb-16 italic">
           O que dizem sobre nossa jornada
         </h3>
 
@@ -71,28 +71,28 @@ export default function ComplimentsCarousel() {
         <div
           ref={carouselRef}
           onScroll={handleScroll}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-8"
+          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 sm:pb-8"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {reviews.map((r, i) => (
             <div
               key={i}
-              className="flex-none w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] snap-start group"
+              className="flex-none w-[92%] sm:w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] snap-start group"
             >
-              <div className="bg-white p-10 rounded-3xl shadow-lg border border-brand-beige italic h-full flex flex-col justify-between transition-all duration-300 group-hover:border-brand-gold/50 group-hover:shadow-xl group-hover:-translate-y-1">
+              <div className="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border border-brand-beige italic h-full flex flex-col justify-between transition-all duration-300 group-hover:border-brand-gold/50 group-hover:shadow-xl group-hover:-translate-y-1">
                 <div>
-                  <div className="text-5xl text-brand-gold/30 font-serif leading-none mb-4">
+                  <div className="text-4xl sm:text-5xl text-brand-gold/30 font-serif leading-none mb-4">
                     “
                   </div>
-                  <p className="text-brand-dark/80 text-lg leading-relaxed mb-6">
+                  <p className="text-brand-dark/80 text-base sm:text-lg leading-relaxed mb-6">
                     {r.text}
                   </p>
                 </div>
                 <div className="flex items-center gap-4 pt-6 border-t border-brand-beige">
-                  <div className="w-12 h-12 rounded-full bg-brand-beige/50 flex items-center justify-center font-bold text-brand-brown text-xl uppercase">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-brand-beige/50 flex items-center justify-center font-bold text-brand-brown text-lg sm:text-xl uppercase">
                     {r.name.substring(0, 1)}
                   </div>
-                  <p className="font-bold text-brand-gold text-sm not-italic tracking-wide">
+                  <p className="font-bold text-brand-gold text-xs sm:text-sm not-italic tracking-wide">
                     {r.name}
                   </p>
                 </div>
@@ -102,7 +102,7 @@ export default function ComplimentsCarousel() {
         </div>
 
         {/* PAGINAÇÃO (Dots) */}
-        <div className="flex justify-center gap-3 mt-4 mb-16">
+        <div className="flex justify-center gap-3 mt-4 mb-12 sm:mb-16">
           {reviews.map((_, i) => (
             <button
               key={i}
