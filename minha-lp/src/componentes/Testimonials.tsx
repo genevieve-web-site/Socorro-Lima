@@ -1,142 +1,184 @@
 import { useEffect, useRef, useState } from "react";
+import imgAtendimento1 from "../assets/midia/projetos/Atendimento.jpeg";
+import imgAtendimento2 from "../assets/midia/projetos/Palestra.jpeg";
+import imgProjeto1 from "../assets/midia/projetos/cliente_criança.jpeg";
+import imgProjeto2 from "../assets/midia/projetos/testemunho.jpeg";
 
-export default function ComplimentsCarousel() {
-  const reviews = [
+export default function ProjectsCarousel() {
+  const projects = [
     {
-      name: "Ana Silva (@ana.silva_)",
-      text: "A Socorro mudou minha vida. Com a TRG, consegui superar traumas que carregava há anos. Gratidão eterna! ❤️🙌",
+      title: "Atendimento Infantil",
+      category: "Presencial",
+      img: imgAtendimento1,
     },
     {
-      name: "Marcos Souza (@marcosouza_terapia)",
-      text: "Excelente profissional. O acolhimento dela é indescritível, me senti seguro desde a primeira sessão.",
+      title: "Sessão Terapêutica Em Grupo",
+      category: "Presencial",
+      img: imgAtendimento2,
     },
     {
-      name: "Clara G. (@clara.guimaraes)",
-      text: "Eu não acreditava que poderia me livrar da ansiedade tão rápido. A abordagem da Socorro é direta e transformadora. ✨",
+      title: "Atendimento Infantil",
+      category: " Presencial",
+      img: imgProjeto1,
     },
-    {
-      name: "Roberto F. (@roberto.fernandes)",
-      text: "Uma terapeuta de alma iluminada. Super recomendo o trabalho dela para quem busca cura real.",
-    },
-    {
-      name: "Carla Dias (@carladias_)",
-      text: "Simplesmente maravilhosa! Me ajudou a me reconectar comigo mesma em um momento muito difícil.",
-    },
+    { title: "Atendimento Online", category: "Depoimento ", img: imgProjeto2 },
   ];
 
   const carouselRef = useRef<HTMLDivElement | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
 
-  const scrollTo = (index: number) => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.offsetWidth;
-      carouselRef.current.scrollTo({
-        left: index * cardWidth,
-        behavior: "smooth",
-      });
-      setActiveIndex(index);
-    }
+  const updateScrollState = () => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const maxScrollLeft = el.scrollWidth - el.clientWidth;
+    const epsilon = 2;
+
+    setCanScrollPrev(el.scrollLeft > epsilon);
+    setCanScrollNext(el.scrollLeft < maxScrollLeft - epsilon);
+  };
+
+  const getScrollStep = () => {
+    const el = carouselRef.current;
+    if (!el) return 0;
+
+    const firstCard = el.querySelector<HTMLElement>("[data-carousel-card]");
+    const gap = Number.parseFloat(getComputedStyle(el).gap || "0");
+    if (!firstCard) return el.clientWidth;
+
+    return (
+      firstCard.getBoundingClientRect().width + (Number.isFinite(gap) ? gap : 0)
+    );
   };
 
   const handleScroll = () => {
-    if (carouselRef.current) {
-      const cardWidth = carouselRef.current.offsetWidth;
-      const currentIndex = Math.round(
-        carouselRef.current.scrollLeft / cardWidth,
-      );
-      setActiveIndex(currentIndex);
-    }
+    updateScrollState();
+  };
+
+  const scrollPrev = () => {
+    if (!carouselRef.current) return;
+    const step = getScrollStep();
+    carouselRef.current.scrollBy({ left: -step, behavior: "smooth" });
+  };
+
+  const scrollNext = () => {
+    if (!carouselRef.current) return;
+    const step = getScrollStep();
+    carouselRef.current.scrollBy({ left: step, behavior: "smooth" });
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const nextIndex = (activeIndex + 1) % reviews.length;
-      scrollTo(nextIndex);
-    }, 3500);
-
-    return () => clearInterval(interval);
-  }, [activeIndex, reviews.length]);
+    updateScrollState();
+  }, []);
 
   return (
-    <section className="py-20 sm:py-24 bg-brand-light">
-      <div className="max-w-6xl mx-auto px-5 sm:px-6 text-center relative">
-        <h2 className="text-brand-brown uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-2 justify-center">
-          <span className="w-8 h-[1px] bg-brand-brown"></span> Reconhecimento
-        </h2>
-        <h3 className="text-4xl sm:text-5xl md:text-6xl font-serif text-brand-dark mb-12 sm:mb-16 italic">
-          O que dizem sobre nossa jornada
-        </h3>
+    <section id="testimonials" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-brand-brown uppercase tracking-[0.3em] text-xs font-bold mb-4 flex items-center gap-2 justify-center">
+            <span className="w-8 h-[1px] bg-brand-brown"></span> Portfólio
+          </h2>
+          <h3 className="text-4xl md:text-5xl font-serif text-brand-dark italic">
+            Atendimentos e Projetos Realizados
+          </h3>
+        </div>
 
-        {/* CONTÊINER DO CARROSSEL (CSS Snap) */}
-        <div
-          ref={carouselRef}
-          onScroll={handleScroll}
-          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-6 sm:pb-8"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        >
-          {reviews.map((r, i) => (
-            <div
-              key={i}
-              className="flex-none w-[92%] sm:w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] snap-start group"
-            >
-              <div className="bg-white p-6 sm:p-10 rounded-3xl shadow-lg border border-brand-beige italic h-full flex flex-col justify-between transition-all duration-300 group-hover:border-brand-gold/50 group-hover:shadow-xl group-hover:-translate-y-1">
-                <div>
-                  <div className="text-4xl sm:text-5xl text-brand-gold/30 font-serif leading-none mb-4">
-                    “
+        {/* CARROSSEL DE IMAGENS */}
+        <div className="relative">
+          <div
+            ref={carouselRef}
+            onScroll={handleScroll}
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-10"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          >
+            {projects.map((item, i) => (
+              <div
+                key={i}
+                data-carousel-card
+                className="flex-none w-[85%] sm:w-[45%] lg:w-[30%] snap-start"
+              >
+                <div className="relative group overflow-hidden rounded-3xl shadow-lg aspect-[4/5]">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  {/* Overlay com informações */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent flex flex-col justify-end p-8 transition-opacity duration-300 group-hover:bg-brand-dark/40">
+                    <span className="text-brand-gold text-xs font-bold uppercase tracking-widest mb-2 opacity-0 translate-y-4 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0">
+                      {item.category}
+                    </span>
+                    <h4 className="text-white text-xl font-serif italic opacity-0 translate-y-4 transition-all duration-500 delay-100 group-hover:opacity-100 group-hover:translate-y-0">
+                      {item.title}
+                    </h4>
                   </div>
-                  <p className="text-brand-dark/80 text-base sm:text-lg leading-relaxed mb-6">
-                    {r.text}
-                  </p>
-                </div>
-                <div className="flex items-center gap-4 pt-6 border-t border-brand-beige">
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-brand-beige/50 flex items-center justify-center font-bold text-brand-brown text-lg sm:text-xl uppercase">
-                    {r.name.substring(0, 1)}
-                  </div>
-                  <p className="font-bold text-brand-gold text-xs sm:text-sm not-italic tracking-wide">
-                    {r.name}
-                  </p>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* PAGINAÇÃO (Dots) */}
-        <div className="flex justify-center gap-3 mt-4 mb-12 sm:mb-16">
-          {reviews.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => scrollTo(i)}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                activeIndex === i
-                  ? "w-8 bg-brand-brown"
-                  : "w-2 bg-brand-brown/30 hover:bg-brand-brown/60"
-              }`}
-              aria-label={`Ir para depoimento ${i + 1}`}
-            />
-          ))}
-        </div>
-
-        {/* BOTÃO VER MAIS (Direcionando ao Insta) */}
-        <div className="mt-16">
-          <a
-            href="https://www.instagram.com/terapeutasocorrolima/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-brand-brown text-brand-light px-10 py-4 rounded-full font-bold uppercase text-xs tracking-widest shadow-xl transition-all hover:bg-white hover:text-brand-gold hover:shadow-2xl hover:-translate-y-1"
+          <button
+            type="button"
+            aria-label="Anterior"
+            onClick={scrollPrev}
+            disabled={!canScrollPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 rounded-full bg-brand-brown text-white w-11 h-11 flex items-center justify-center shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            Ver mais depoimentos no Instagram{" "}
-            <span className="text-brand-light font-light">
-              @terapeutasocorrolima
-            </span>
-          </a>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 18L9 12L15 6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          <button
+            type="button"
+            aria-label="Próximo"
+            onClick={scrollNext}
+            disabled={!canScrollNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 rounded-full bg-brand-brown text-white w-11 h-11 flex items-center justify-center shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 18L15 12L9 6"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* MENSAGEM DE AGRADECIMENTO FINAL */}
+        <div className="mt-16 text-center max-w-3xl mx-auto border-t border-brand-beige pt-10">
+          <p className="text-brand-dark/70 italic text-lg leading-relaxed">
+            "Meu agradecimento a cada um de vocês que permitiu e acreditou em
+            meu profissionalismo. Juntos conseguimos transformações reais e
+            duradouras."
+          </p>
+          <div className="mt-6 font-serif text-brand-gold font-bold">
+            — Terapeuta Socorro Lima
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-// Adicione este CSS global ou no seu arquivo de estilos para esconder a barra de rolagem
-// .scrollbar-hide::-webkit-scrollbar {
-//   display: none;
-// }

@@ -24,7 +24,7 @@ export default function Services() {
     {
       title: "Técnicas terapêuticas complementares",
       img: servico4,
-      desc: "Interpretação de desenhos (principalmente crianças)",
+      desc: "Análise e Interpretação de Desenhos (principalmente crianças)",
     },
   ];
 
@@ -38,7 +38,7 @@ export default function Services() {
   return (
     <section
       id="servicos"
-      className="py-20 sm:py-24 relative overflow-hidden bg-fixed bg-cover bg-center"
+      className="py-8 sm:py-24 relative overflow-hidden bg-fixed bg-cover bg-center"
       // Aplica a imagem na seção toda
     >
       {/* OVERLAY: Escurece ou clareia a imagem de fundo para o texto aparecer */}
@@ -56,7 +56,7 @@ export default function Services() {
               <span className="italic font-light">o processo terapêutico.</span>
             </h3>
           </div>
-          <p className="text-brand-dark/60 text-sm md:text-base max-w-xs border-l border-brand-beige pl-4 italic">
+          <p className="text-brand-dark/60 text-base md:text-lg max-w-xs border-l border-brand-beige pl-4 italic">
             "Abordagens terapêuticas que ajudam a acessar emoções de forma
             profunda e personalizada."
           </p>
@@ -88,16 +88,22 @@ export default function Services() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 relative z-10">
             {listServices.map((s, i) => (
               <div key={i} className="flex items-center gap-3">
-                <CheckCircle2 className="text-primary shrink-0" size={18} />
+                <CheckCircle2 className="text-primary shrink-0" size={24} />
                 <span className="text-brand-dark/80 font-medium text-sm md:text-base">
                   {s}
                 </span>
               </div>
             ))}
           </div>
+          {/* TEXTO DE FUNDO (DECORATIVO) */}
+          <div className="absolute top-4 left-10 -translate-y-1/2 select-none pointer-events-none hidden lg:block">
+            <span className="text-[12rem] mt-0 font-serif font-black text-brand-gold/10 leading-none">
+              Terapia
+            </span>
+          </div>
 
-          <div className="bg-primary-light p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 shadow-xl border border-white/50 relative z-10">
-            <p className="text-beige font-serif italic text-base sm:text-lg text-center md:text-left">
+          <div className="bg-[var(--color-primary)] mt-18 p-6 sm:p-8 rounded-3xl flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6 shadow-xl border border-white/50 relative z-10">
+            <p className="text-white font-serif italic text-base sm:text-lg text-center md:text-left">
               Comece seu processo com <br /> um atendimento acolhedor e
               personalizado.
             </p>
@@ -109,6 +115,91 @@ export default function Services() {
             >
               Falar Comigo
             </a>
+          </div>
+        </div>
+        {/* SEÇÃO DE ATENDIMENTOS (Adicione logo abaixo do fechamento da <nav>) */}
+        <div className="mt-8 md:mt-32 px-4 sm:px-6 md:px-12 pb-12">
+          <div className="bg-white/80 backdrop-blur-md rounded-3xl shadow-xl border border-brand-beige overflow-hidden grid grid-cols-1 md:grid-cols-2">
+            {/* Coluna de Texto: Informações de Atendimento */}
+            <div className="p-8 md:p-12 flex flex-col justify-center">
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-brand-dark)] mb-4">
+                Atendimentos
+              </h2>
+
+              <p className="text-lg text-[var(--color-calm-text)] mb-6">
+                Sessões{" "}
+                <span className="font-semibold text-[var(--color-action)]">
+                  online
+                </span>{" "}
+                e presenciais com duração de{" "}
+                <span className="font-semibold text-[var(--color-brand-primary)]">
+                  45 a 50 min
+                </span>
+                .
+              </p>
+              <h4 className="font-semibold text-[var(--color-brand-dark)] uppercase tracking-wider text-sm">
+                Atendimentos Online:
+              </h4>
+              <ul className="grid grid-cols-1 mb-12  sm:grid-cols-2 gap-2 text-sm text-[var(--color-calm-text)]">
+                <li className="flex items-start gap-2"> 👩🏽‍💻 WhatsApp </li>
+                <li className="flex items-start gap-2"> 👩🏽‍💻 Google Meet </li>
+              </ul>
+
+              <div className="space-y-4">
+                <h3 className="font-semibold text-[var(--color-brand-dark)] uppercase tracking-wider text-sm">
+                  Atendimentos Presenciais:
+                </h3>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[var(--color-calm-text)]">
+                  <li className="flex items-start gap-2">
+                    📍 Policlínica (Santa Maria da Vitória)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    📍 Fisio Clin (Bom Jesus da Lapa)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    📍 Projeto (Jaborandi)
+                  </li>
+                  <li className="flex items-start gap-2">📍 Coribe - Bahia</li>
+                </ul>
+              </div>
+
+              <div className="mt-8 p-4 bg-[var(--color-brand-surface)] rounded-xl border-l-4 border-[var(--color-action)]">
+                <p className="text-sm font-medium text-[var(--color-brand-dark)]">
+                  Oferecemos pacotes promocionais ou valor por sessão avulsa.
+                  <a
+                    href="https://wa.me/557781135298"
+                    className="ml-2 underline text-[var(--color-action)] hover:text-[var(--color-brand-primary)]"
+                  >
+                    Consultar valores
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            {/* Coluna do Mapa: Google Maps */}
+            <div className="h-64 md:h-auto min-h-[300px] relative w-full">
+              {/* Comentário deve ficar aqui, fora da tag */}
+              <iframe
+                title="Localização Socorro Lima"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3881.237245291672!2d-44.20221052541524!3d-13.397631153724937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7593d4536d45d73%3A0x409af24d92e94c6e!2sELO%20Medical%20Center!5e0!3m2!1spt-BR!2sbr!4v1776104899409!5m2!1spt-BR!2sbr"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className=" transition-all duration-500"
+              ></iframe>
+              <div className="absolute bottom-4 right-4">
+                <a
+                  href="https://maps.app.goo.gl/4srKlaawA05mtkytd"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-white px-4 py-2 rounded-full shadow-lg text-xs font-bold text-[var(--color-brand-dark)] hover:scale-105 transition-transform inline-block"
+                >
+                  Ver no Google Maps
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

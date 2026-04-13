@@ -1,4 +1,4 @@
-import perfil from "../assets/midia/comprimidas/466804359_548262054643769_4083778739538699827_n.jpg";
+import perfil from "../assets/midia/projetos/clinica_Elo.jpeg";
 
 export default function About() {
   return (

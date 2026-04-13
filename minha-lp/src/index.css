@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* BASE */
-  --color-primary: #3e5026; /* verde principal */
-  --color-primary-dark: #2f3d1c; /* hover, contraste */
-  --color-primary-light: #6f7f4f; /* detalhes suaves */
+  /* PALLETA PRINCIPAL: Confianca Profissional */
+  --color-brand-dark: #1b262c; /* cabecalhos/titulos */
+  --color-primary: #0f4c75; /* destaques/icones */
+  --color-action: #3282b8; /* botoes/hover */
+  --color-surface: #f0f0f0; /* secoes/background */
 
   /* NEUTROS */
-  --color-beige: #f6f5f3; /* fundo */
-  --color-off-white: #fafaf8; /* fundo leve */
-  --color-text: #2b2b2b; /* texto principal */
+  --color-off-white: #f9fbff; /* base clara */
+  --color-text: #576574; /* texto principal */
 
-  /* APOIO (verde suave) */
-  --color-soft-green: #c8dbae; /* destaque leve */
+  /* VARIANTE: Calma Terapeutica (opcional) */
+  --color-calm-light: #a2d2ff;
+  --color-calm-deep: #277bc0;
+  --color-calm-ice: #f9fbff;
+  --color-calm-text: #576574;
 
-  /* DESTAQUE (agora sim dourado real) */
-  --color-accent: #c2a96a; /* dourado elegante */
-  --color-accent-light: #e3d3a3;
+  /* VARIANTE: Vitalidade (opcional) */
+  --color-vital-ocean: #0077b6;
+  --color-vital-cyan: #90e0ef;
+  --color-vital-navy: #03045e;
 
-  /* EXTRA (sofisticação) */
-  --color-muted: #495042; /* cinza esverdeado */
-
-  /* ALIASES para classes já usadas no projeto (bg-brand-*, text-brand-*) */
-  --color-brand-gold: var(--color-accent);
-  --color-brand-dark: var(--color-text);
+  /* ALIASES para classes ja usadas no projeto (bg-brand-*, text-brand-*) */
+  --color-brand-gold: var(--color-action);
   --color-brand-light: var(--color-off-white);
-  --color-brand-beige: var(--color-beige);
-  --color-brand-brown: var(--color-muted);
+  --color-brand-beige: var(--color-surface);
+  --color-brand-brown: var(--color-brand-dark);
 
   /* Se quiser usar fontes elegantes como a do site */
   --font-serif: "Playfair Display", serif;

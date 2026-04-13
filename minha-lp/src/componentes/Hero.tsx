@@ -8,15 +8,15 @@ import Image from "../assets/midia/comprimidas/5.jpg";
 const carouselItems = [
   {
     src: heroImage,
-    title: "Equilíbrio emocional",
+    title: "Equilíbrio Emocional",
   },
   {
     src: secondImage,
-    title: "Ansiedade sob controle",
+    title: "Ansiedade sob Controle",
   },
   {
     src: Image,
-    title: "Transformação emocional",
+    title: "Transformação Emocional",
   },
 ];
 
@@ -37,31 +37,31 @@ export default function HeroModerno() {
     >
       {/* TEXTO DE FUNDO (DECORATIVO) */}
       <div className="absolute top-150 left-10 -translate-y-1/2 select-none pointer-events-none hidden lg:block">
-        <span className="text-[15rem] mt-12 font-serif font-black text-brand-gold/10 leading-none">
-          RPG
+        <span className="text-[12rem] mt-0 font-serif font-black text-brand-gold/10 leading-none">
+          Psicanálise
         </span>
       </div>
 
       <div className="container mx-auto px-5 sm:px-6 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
         {/* COLUNA DE TEXTO (5/12) */}
         <div className="lg:col-span-5 space-y-6 sm:space-y-8 lg:-mt-32">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-brown/30 text-brand-brown border border-brand-gold/20">
-            <ShieldCheck size={16} />
-            <span className="text-xs font-brand-brown uppercase tracking-widest">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-calm-text)] border border-brand-gold/20">
+            <ShieldCheck size={16} className="text-[var(--color-calm-light)]" />
+            <span className="text-xs text-[var(--color-calm-ice)] uppercase tracking-widest">
               Certificada
             </span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-4xl font-serif text-gray-600 leading-[1] sm:leading-[0.95] lg:-ml-1">
+          <h1 className="text-4xl sm:text-5xl md:text-4xl font-serif text-[var(--color-brand-dark)] leading-[1] sm:leading-[0.95] lg:-ml-1">
             Psicanálise & <br />
-            <span className="italic font-light text-brand-brown">
+            <span className="italic font-light text-[var(--color-action)]">
               terapia{" "}
             </span>{" "}
             <br />
             para ansiedade
           </h1>
 
-          <p className="text-sm text-brand-brown max-w-sm leading-relaxed border-l-2 border-brand-gold pl-4 sm:pl-6">
+          <p className="text-lg text-brand-brown max-w-sm leading-relaxed border-l-2 border-brand-gold pl-4 sm:pl-6">
             Se reconectar consigo mesma pode transformar toda a sua vida.
           </p>
 
@@ -70,15 +70,16 @@ export default function HeroModerno() {
               href="https://wa.me/557781135298"
               target="_blank"
               rel="noreferrer"
-              className="bg-brand-gold/80 text-gray-600 px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest hover:bg-brand-dark transition-all flex items-center justify-center gap-3 shadow-xl animate-[pulse_3.5s_ease-in-out_infinite]"
+              className="bg-brand-gold/80 text-gray-100 px-12 py-4 rounded-full font-bold uppercase text-sm flex items-center justify-center gap-3 shadow-xl"
             >
-              Entrar em contato <ArrowRight size={18} />
+              Angendar
+              <ArrowRight size={32} />
             </a>
             <Link
               to="/about"
               className="border border-brand-brown text-brand-brown px-8 py-4 rounded-full font-bold uppercase text-xs tracking-widest bg-brand-gold/10 transition-all text-center"
             >
-              Sobre a Técina
+              Sobre Mim
             </Link>
           </div>
         </div>
@@ -99,10 +100,7 @@ export default function HeroModerno() {
             ))}
 
             {/* OVERLAY DE TEXTO NO CARROSSEL */}
-            <div className="absolute bottom-2 sm:bottom-3 left-3 sm:left-4 md:left-6 text-left p-3 sm:p-4 max-w-[85%]">
-              <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.3em] text-[var(--color-primary-dark)] opacity-80">
-                {carouselItems[active].subtitle}
-              </p>
+            <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 text-center p-3 sm:p-4 max-w-[85%]">
               <h4 className="text-xl sm:text-2xl font-serif italic text-[var(--color-primary-dark)]">
                 {carouselItems[active].title}
               </h4>
@@ -111,7 +109,7 @@ export default function HeroModerno() {
 
           {/* ELEMENTOS FLUTUANTES (STATUS) */}
 
-          <div className="absolute bottom-35 sm:bottom-10 right-2 sm:right-6 md:right-10 bg-white p-3 sm:p-4 rounded-2xl shadow-xl animate-bounce-slow flex items-center gap-3 sm:gap-4 border border-brand-beige z-20">
+          <div className="absolute bottom-18 sm:bottom-24 right-2 sm:right-6 md:right-10 bg-white p-3 sm:p-4 rounded-2xl shadow-xl animate-bounce-slow flex items-center gap-3 sm:gap-4 border border-brand-beige z-20">
             <div className="bg-brand-gold/20 p-2 rounded-lg text-brand-gold">
               <Brain size={24} />
             </div>
