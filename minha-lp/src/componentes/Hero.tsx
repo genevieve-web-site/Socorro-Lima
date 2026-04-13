@@ -58,7 +58,7 @@ export default function HeroModerno() {
               terapia{" "}
             </span>{" "}
             <br />
-            para ansiedade
+            para a ansiedade
           </h1>
 
           <p className="text-lg text-brand-brown max-w-sm leading-relaxed border-l-2 border-brand-gold pl-4 sm:pl-6">
@@ -95,7 +95,7 @@ export default function HeroModerno() {
                 className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
                   active === i ? "opacity-100 scale-100" : "opacity-0 scale-110"
                 }`}
-                alt="Metodo TRG Socorro Lima"
+                alt="Método"
               />
             ))}
 
@@ -115,7 +115,7 @@ export default function HeroModerno() {
             </div>
             <div>
               <p className="text-lg sm:text-xl font-bold text-brand-dark leading-none">
-                260+
+                +260
               </p>
               <p className="text-[9px] sm:text-[10px] uppercase text-brand-dark/60 font-bold">
                 Atendimentos

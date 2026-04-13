@@ -24,7 +24,7 @@ export default function Services() {
     {
       title: "Técnicas terapêuticas complementares",
       img: servico4,
-      desc: "Análise e Interpretação de Desenhos (principalmente crianças)",
+      desc: "Análise e Interpretação de Desenhos (principalmente de  crianças)",
     },
   ];
 
@@ -74,10 +74,10 @@ export default function Services() {
                 />
                 <div className="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500" />
               </div>
-              <h4 className="text-lg sm:text-xl font-serif text-brand-dark mb-2 group-hover:text-brand-gold transition-colors italic">
+              <h4 className="text-[22px] sm:text-xl font-serif text-brand-dark mb-2 group-hover:text-brand-gold transition-colors italic">
                 {item.title}
               </h4>
-              <p className="text-sm text-brand-dark/60">{item.desc}</p>
+              <p className="text-lg text-brand-dark/60">{item.desc}</p>
             </div>
           ))}
         </div>

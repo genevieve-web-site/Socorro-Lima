@@ -50,20 +50,20 @@ export default function ProjectsGallery() {
         {/* GRID ASSIMÉTRICO DE PORTFÓLIO */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {/* Destaque inicial */}
-          <div className="relative aspect-[4/3] sm:aspect-[3/4] overflow-hidden rounded-2xl md:aspect-[16/10]">
+          <div className="relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden rounded-2xl md:aspect-[16/10]">
             <div
               className="absolute inset-0"
               style={{ backgroundColor: firstProject.bg }}
             />
 
-            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+            <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6">
               <span className="inline-block bg-white/30 text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full mb-3 tracking-widest">
                 {firstProject.tag}
               </span>
-              <h4 className="text-lg sm:text-xl md:text-2xl font-serif italic text-white">
+              <h4 className="text-xl sm:text-2xl md:text-3xl font-serif italic text-white">
                 {firstProject.title}
               </h4>
-              <p className="text-white/90 text-lg sm:text-sm mt-2 max-w-lg leading-relaxed">
+              <p className="text-white/90 text-sm sm:text-base mt-2 max-w-lg leading-relaxed">
                 {firstProject.text}
               </p>
             </div>
@@ -73,7 +73,7 @@ export default function ProjectsGallery() {
           {middleProjects.map((p, i) => (
             <div
               key={`${p.title}-${i}`}
-              className="relative aspect-[16/9] sm:aspect-square overflow-hidden rounded-2xl"
+              className="relative aspect-[3/4] sm:aspect-square overflow-hidden rounded-2xl"
             >
               <div
                 className="absolute inset-0"
@@ -91,20 +91,20 @@ export default function ProjectsGallery() {
 
           {/* Destaque final (se houver mais de 1 card) */}
           {lastProject && (
-            <div className="relative aspect-[4/3] sm:aspect-[3/4] overflow-hidden rounded-2xl md:aspect-[16/10]">
+            <div className="relative aspect-[3/4] sm:aspect-[3/4] overflow-hidden rounded-2xl md:aspect-[16/10]">
               <div
                 className="absolute inset-0"
                 style={{ backgroundColor: lastProject.bg }}
               />
 
-              <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-right flex flex-col items-end">
+              <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6">
                 <span className="inline-block bg-brand-brown text-white text-[10px] uppercase font-bold px-3 py-1 rounded-full mb-3 tracking-widest">
                   {lastProject.tag}
                 </span>
-                <h4 className="text-lg sm:text-xl md:text-2xl font-serif italic text-white">
+                <h4 className="text-xl sm:text-2xl md:text-3xl font-serif italic text-white">
                   {lastProject.title}
                 </h4>
-                <p className="text-white/90 text-xs sm:text-sm mt-2 max-w-md leading-relaxed">
+                <p className="text-white/90 text-sm sm:text-base mt-2 max-w-lg leading-relaxed">
                   {lastProject.text}
                 </p>
               </div>
